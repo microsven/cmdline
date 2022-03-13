@@ -17,7 +17,7 @@ uft_command:FLOW flow_command
 flow_command:CREATE INT attrs PATTERN patterns END ACTIONS actions END
 	|VALIDATE INT attrs PATTERN patterns END ACTIONS actions END
 	|QUERY INT INT COUNT
-	|DESTROY RULE INT
+	|DESTROY INT RULE INT
 	|FLUSH INT
 	|LIST INT
 	;
@@ -60,7 +60,9 @@ layer_fields:layer_field layer_fields
 	;
 layer_field:SRC IS MACADDR
 	|DST IS MACADDR
+	|SRC IS IPADDR4
 	|DST IS IPADDR4
+	|SRC IS IPADDR6
 	|DST IS IPADDR6
 	|SRC IS INT
 	|DST IS INT
@@ -80,14 +82,21 @@ layer_field:SRC IS MACADDR
 	|S_FIELD IS INT
 	|TNI IS INT
 	|TEID MASK INT
+	|TEID IS INT
 	|TC IS INT
 	;
 
-range_value:SPEC value MASK value last
+range_value:spec_value mask_value last_value
 	;
-last:LAST value
+spec_value: SPEC value
+	;
+mask_value: MASK value
+	;
+last_value: LAST value
 	|
 	;
+	;
+
 value:MACADDR 
 	|IPADDR4
 	|IPADDR6
