@@ -2172,7 +2172,6 @@
  flow validate 0 ingress pattern eth / ipv4 / udp / gtpu teid is 0x100000000 / end actions queue index 1 / end
  flow validate 0 ingress pattern eth / ipv4 / udp / gtpu teid is 0x12345678 / gtp_psc qfi is 0x34 / end actions drop / end
  flow validate 1 ingress pattern eth / ipv4 src is 192.168.0.20 dst is 192.168.0.21 proto is 255 ttl is 2 tos is 4 / end actions queue index 1 / end
- Case: test flow validate
  flow validate 0 ingress pattern eth / ipv4 / tcp / end actions rss types ipv4-tcp l3-dst-only end queues 0 1 end / end
  flow validate 0 ingress pattern eth / ipv4 / udp / gtpu / gtp_psc pdu_t is 0 / ipv4 / end actions rss func symmetric_toeplitz types gtpu end key_len 0 queues end / end
  flow validate 0 ingress pattern eth / ipv4 / udp / gtpu / gtp_psc pdu_t is 0 / ipv4 / end actions rss func symmetric_toeplitz types ipv4 l3-dst-only end key_len 0 queues end / end
@@ -2193,91 +2192,13 @@
  flow validate 0 ingress pattern eth / ipv6 / udp / gtpu / gtp_psc pdu_t is 1 / ipv6 / tcp / end actions rss func symmetric_toeplitz types ipv6-tcp ipv6 end key_len 0 queues end / end
  flow validate 0 ingress pattern eth / ipv4 fragment_offset spec 0x2000 fragment_offset mask 0x2000 / end actions queue index 1 / mark / end
  flow validate 0 ingress pattern eth / ipv4 / end actions rss types eth ipv4-frag end key_len 0 queues end / end
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 12
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 0
- flow flush 0
+
  flow flush 0
  flow destroy 0 rule 0
  flow destroy 1 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 1
  flow destroy 0 rule 2
- flow destroy 0 rule 5
- flow destroy 0 rule 4
- flow destroy 0 rule 3
- flow destroy 0 rule 1
- flow destroy 0 rule 2
- flow destroy 0 rule 0
- flow destroy 0 rule 3
- flow destroy 0 rule 3
- flow destroy 0 rule 3
- flow destroy 0 rule 3
  flow destroy 0 rule 256
  flow destroy 0 rule 257
- flow destroy 0 rule 64
- flow destroy 0 rule 65
  flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 2
- flow destroy 0 rule 3
- flow destroy 0 rule 4
- flow destroy 0 rule 5
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 2
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 2
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow destroy 0 rule 1
- flow destroy 0 rule 0
- flow query 0 0 count
  flow query 1 0 count
- flow list 0
- flow list 0
- flow list 0
- flow list 0
- flow list 0
- flow list 0
- flow list 0
- flow list 0
- flow list 0
- flow list 0
  flow list 0
